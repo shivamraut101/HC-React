@@ -29,6 +29,8 @@ document.querySelector('p').innerHTML="Can't go in Negative value"
       <button onClick={addValue}>Add Value{count}</button>
       <button onClick={removeValue}>Remove Value{count}</button>
       <p></p>
+
+      
     </>
   );
 }
