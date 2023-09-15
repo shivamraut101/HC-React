@@ -4,13 +4,11 @@ function App() {
   let [count, setCount] = useState(5);
 
   const addValue = () => {
-    
-    setCount(count + 1);
-    if(count >=1){
-      document.querySelector('p').innerHTML=""
-    }
-    
+    setCount(count => count + 1);
   };
+  if(count >=1){
+    document.querySelector('p').innerHTML=""
+  }
   const removeValue = () => {
     if(count !=0){
       setCount(count - 1);
