@@ -1,4 +1,4 @@
-// This is Password generator using a Callback hook, useEffect hook  
+// This is Password generator using a Callback hook, useEffect and useRef hook  
 
 import { useState,useCallback, useEffect, useRef } from "react"; 
 
@@ -62,6 +62,7 @@ function PasswordGenerator(){
         passwordGenerator()
     },[length,number,char,passwordGenerator])
   
+   
 
     return(
 <>
