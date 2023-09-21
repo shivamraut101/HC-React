@@ -10,9 +10,9 @@ function App() {
 
   return (
     <UserContextProvider>
+      <h1>Hey Welcome to Chai aur Code</h1>
       <Login/>
       <Profile/>
-      <h1>Hey Welcome to Chai aur Code</h1>
     </UserContextProvider>
   )
 }
