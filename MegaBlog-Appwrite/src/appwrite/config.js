@@ -1,5 +1,5 @@
 import conf from "../conf/conf";        
-import {Client,ID, Databases,Storage,Query} from "appwrite";
+import {Client,ID,Databases,Storage,Query} from "appwrite";
 
 export class Service{
     client = new Client()
@@ -34,7 +34,7 @@ export class Service{
         }
     }
 
-    async updatePost(slug,{title,content,featuredImage,status,userId}){
+    async updatePost(slug,{title,content,featuredImage,status}){
         try {
             return await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
@@ -44,7 +44,8 @@ export class Service{
                     title,
                     content,
                     featuredImage,
-                    status
+                    status,
+                    
                 }
             )
         } catch (error) {
