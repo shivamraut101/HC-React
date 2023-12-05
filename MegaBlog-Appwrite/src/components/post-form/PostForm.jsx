@@ -35,7 +35,7 @@ function PostFrom(post){
             }
               
         }else{
-            const file = await appwriteService.uploadFile(data.image[0]);
+            const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null;
 
             if(file){
                 const fileId = file.$id
