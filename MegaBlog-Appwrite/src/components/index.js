@@ -7,7 +7,8 @@ import RTE from "./RTE";
 import Signup from "./Signup";
 import Login from "./Login";
 import PostFrom from "./post-form/PostForm";
-import PostCards from "./PostCards"
+import PostCards from "./PostCards";
+import AuthLayout from "./AuthLayout"
 export{
     Header,
     Footer,
@@ -17,6 +18,7 @@ export{
     RTE,
     Signup,
     Login,
-    PostFrom
-
+    PostFrom,
+    PostCards,
+    AuthLayout
 }
