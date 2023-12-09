@@ -1,6 +1,6 @@
 import React from "react";
 import {login} from "../store/authSlice"
-import {Button, Input, Logo} from "./index"
+import {Button, Input, Logo} from "./index.js"
 import authService from "../appwrite/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -19,13 +19,12 @@ function Signup(){
             const userData = await authService.createAccount(data)
             if(userData){
                 const userData = await authService.getCurrentUser()
-                if(userData){
-                    dispatch(login(userData));
-                    navigate("/")
-                }
+                if(userData) dispatch(login(userData));
+                navigate("/")
             }
         } catch (error) {
             setError(error.message)
+            console.log(error);
         }
     }
     
@@ -43,7 +42,8 @@ function Signup(){
                 </h2>
                 <p className="mt-2 text-center text-base text-black/60">
                    Already have an account?&nbsp;
-                    <Link to="/login"
+                    <Link 
+                    to="/login"
                     className="font-medium text-primary transition-all duration-200 hover:underline">
                         Login
                     </Link>
@@ -66,7 +66,8 @@ function Signup(){
                             {...register("email",{
                                 required:true,
                                 validate:{
-                                    matchPattern: (value) => /^w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || "Enter an Valid Email Address",
+                                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                    "Email address must be a valid address",
                                 }
                             })}
                         />
