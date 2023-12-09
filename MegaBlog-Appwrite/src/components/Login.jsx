@@ -18,13 +18,12 @@ function Login(){
             const session = await authService.login(data)
             if(session){
                 const userData = await authService.getCurrentUser()
-                if(userData){
-                    dispatch(authLogin(userData))
-                    navigate("/")
-                }
+                if(userData) dispatch(authLogin(userData));
+                navigate("/")
+
             }
         } catch (error) {
-            setError(error)
+            setError(error.message)
         }
     }
 
@@ -34,7 +33,8 @@ function Login(){
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
                 <div className="mb-2 justify-center flex">
                     <span className="inline-block w-full max-w-[100px]">
-                        <Login />
+                        {/* <Login /> */}
+                        <Logo width="100%" />
                     </span>
                 </div>
                 <h2 className="text-center text-2xl font-bold leading-tight"> 
@@ -59,7 +59,7 @@ function Login(){
                             {...register("email",{
                                 required:true,
                                 validate:{
-                                    matchPattern: (value) => /^w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || "Enter an Valid Email Address",
+                                    matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || "Enter an Valid Email Address",
                                 }
                             })}
                         />
